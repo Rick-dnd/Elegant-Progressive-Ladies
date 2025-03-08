@@ -461,56 +461,56 @@
                 console.error('Fehler bei der verzögerten Kategorie-Prüfung:', error);
             }
         }, 500);
-        
-        // Farbvorschau aktualisieren
-        function updateColorPreview(colorValue) {
+    
+    // Farbvorschau aktualisieren
+    function updateColorPreview(colorValue) {
             console.log('Aktualisiere Farbvorschau mit: ' + colorValue);
-            try {
-                const colorPreview = document.getElementById('colorPreview');
-                if (colorPreview) {
-                    if (colorValue.includes('bg-gradient-to-r')) {
-                        // Für Tailwind-Gradienten
-                        const tailwindClasses = colorValue.split(' ');
-                        let fromColor = '#9c27b0'; // Standardwert
-                        let toColor = '#e74694';   // Standardwert
-                        
-                        // Tailwind-Farben zu CSS-Farben
-                        const tailwindToCSS = {
-                            'from-purple-600': '#9c38d1',
-                            'from-purple-500': '#a855f7',
-                            'from-green-500': '#10b981',
-                            'from-blue-500': '#3b82f6',
-                            'from-red-500': '#ef4444',
-                            'from-violet-500': '#8b5cf6',
-                            'to-pink-500': '#e74694',
-                            'to-teal-400': '#2dd4bf',
-                            'to-indigo-500': '#6366f1',
-                            'to-yellow-500': '#eab308',
-                            'to-blue-500': '#3b82f6',
-                            'to-pink-500': '#ec4899'
-                        };
-                        
-                        tailwindClasses.forEach(cls => {
+        try {
+            const colorPreview = document.getElementById('colorPreview');
+            if (colorPreview) {
+                if (colorValue.includes('bg-gradient-to-r')) {
+                    // Für Tailwind-Gradienten
+                    const tailwindClasses = colorValue.split(' ');
+                    let fromColor = '#9c27b0'; // Standardwert
+                    let toColor = '#e74694';   // Standardwert
+                    
+                    // Tailwind-Farben zu CSS-Farben
+                    const tailwindToCSS = {
+                        'from-purple-600': '#9c38d1',
+                        'from-purple-500': '#a855f7',
+                        'from-green-500': '#10b981',
+                        'from-blue-500': '#3b82f6',
+                        'from-red-500': '#ef4444',
+                        'from-violet-500': '#8b5cf6',
+                        'to-pink-500': '#e74694',
+                        'to-teal-400': '#2dd4bf',
+                        'to-indigo-500': '#6366f1',
+                        'to-yellow-500': '#eab308',
+                        'to-blue-500': '#3b82f6',
+                        'to-pink-500': '#ec4899'
+                    };
+                    
+                    tailwindClasses.forEach(cls => {
                             console.log('Verarbeite Tailwind-Klasse: ' + cls);
-                            if (cls.startsWith('from-') && tailwindToCSS[cls]) {
-                                fromColor = tailwindToCSS[cls];
+                        if (cls.startsWith('from-') && tailwindToCSS[cls]) {
+                            fromColor = tailwindToCSS[cls];
                                 console.log('From-Color gefunden: ' + fromColor);
-                            } else if (cls.startsWith('to-') && tailwindToCSS[cls]) {
-                                toColor = tailwindToCSS[cls];
+                        } else if (cls.startsWith('to-') && tailwindToCSS[cls]) {
+                            toColor = tailwindToCSS[cls];
                                 console.log('To-Color gefunden: ' + toColor);
-                            }
-                        });
-                        
+                        }
+                    });
+                    
                         console.log('Setze Gradient-Vorschau: ' + fromColor + ' bis ' + toColor);
-                        colorPreview.style.background = `linear-gradient(to right, ${fromColor}, ${toColor})`;
-                    } else if (colorValue.startsWith('#')) {
-                        // Für Hex-Farben
+                    colorPreview.style.background = `linear-gradient(to right, ${fromColor}, ${toColor})`;
+                } else if (colorValue.startsWith('#')) {
+                    // Für Hex-Farben
                         console.log('Setze Hex-Farbe: ' + colorValue);
-                        colorPreview.style.background = colorValue;
-                    } else {
-                        // Für andere Formate
+                    colorPreview.style.background = colorValue;
+                } else {
+                    // Für andere Formate
                         console.log('Unbekanntes Farbformat, setze Standard');
-                        colorPreview.style.background = '#9c27b0';
+                    colorPreview.style.background = '#9c27b0';
                     }
                 } else {
                     console.error('colorPreview Element nicht gefunden!');
