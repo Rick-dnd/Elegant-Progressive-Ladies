@@ -745,6 +745,18 @@ def news_delete(id):
     flash('News-Eintrag wurde erfolgreich gelöscht.', 'success')
     return redirect(url_for('news_index'))
 
+# Öffentliche News-Detailseite
+@app.route('/news/<int:id>')
+def news_detail(id):
+    news = News.query.get_or_404(id)
+    
+    # Prüfen, ob der Beitrag veröffentlicht ist (nur veröffentlichte anzeigen)
+    if not news.is_published:
+        flash('Dieser News-Beitrag ist nicht verfügbar.', 'warning')
+        return redirect(url_for('index'))
+    
+    return render_template('news_detail.html', news=news)
+
 # Galerie-Verwaltung
 @app.route('/admin/gallery')
 @login_required

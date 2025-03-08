@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ news.title }} - Elegant Progressive Ladies{% endblock %}
+
+{% block description %}{{ news.content|striptags|truncate(160) }}{% endblock %}
+
+{% block content %}
+<section class="py-12 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="max-w-3xl mx-auto">
+            <a href="{{ url_for('index') }}#news" class="inline-flex items-center text-primary hover:text-secondary mb-6 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                </svg>
+                Zurück zu allen News
+            </a>
+            
+            <article class="bg-white rounded-xl shadow-lg overflow-hidden">
+                {% if news.image %}
+                <div class="h-64 sm:h-80 md:h-96 overflow-hidden">
+                    <img src="{{ url_for('static', filename=news.image) }}" 
+                         alt="{{ news.title }}" 
+                         class="w-full h-full object-cover">
+                </div>
+                {% endif %}
+                
+                <div class="p-6 md:p-8">
+                    <div class="text-sm text-gray-500 mb-3">{{ news.date.strftime('%d.%m.%Y') if news.date else '' }}</div>
+                    <h1 class="text-2xl md:text-3xl font-bold mb-6">{{ news.title }}</h1>
+                    
+                    <div class="prose prose-lg max-w-none">
+                        {{ news.content|safe }}
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %} 
