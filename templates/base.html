@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="theme-color" content="#9c27b0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Der Elegant Progressive Ladies Club München e.V. ist eine Gemeinschaft engagierter Frauen, die durch soziales Engagement positiven Wandel bewirken.">
+    <meta name="keywords" content="Frauenverein München, Soziales Engagement, Charity, Spenden, Community, Frauen Empowerment, München Verein, Wohltätigkeit">
+    <meta name="author" content="Elegant Progressive Ladies Club Munich e.V.">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="German">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.elegantprogressiveladies.org{{ request.path }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.elegantprogressiveladies.org{{ request.path }}">
+    <meta property="og:title" content="Elegant Progressive Ladies Club München e.V.">
+    <meta property="og:description" content="Der Elegant Progressive Ladies Club München e.V. ist eine Gemeinschaft engagierter Frauen, die durch soziales Engagement positiven Wandel bewirken.">
+    <meta property="og:image" content="{{ url_for('static', filename='img/about/vereinsbild.jpg', _external=True) }}">
+    <meta property="og:locale" content="de_DE">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.elegantprogressiveladies.org{{ request.path }}">
+    <meta property="twitter:title" content="Elegant Progressive Ladies Club München e.V.">
+    <meta property="twitter:description" content="Der Elegant Progressive Ladies Club München e.V. ist eine Gemeinschaft engagierter Frauen, die durch soziales Engagement positiven Wandel bewirken.">
+    <meta property="twitter:image" content="{{ url_for('static', filename='img/about/vereinsbild.jpg', _external=True) }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB1klEQVRYR+2WS0sDQRDHZ9Jj8JHEA4IXwbOgB0WQePKgEME+cooe/AYevHjxC3jz4DcQFBEUBEHw4smDYBA9CB48CXgUfCQ+kk2m3E2aZJZkyc5mA4GlmO7q+v1nprqmQizwQwvcH+MAcAa8ZqA4HFYnJyfJwsJCqr+/P1UoFCK5XC5iGAYpn8QYG4ZhUkrNvb29s+Pj46vBwcGLSCSyFjQIgQHK5XKsWCxu9vX1bW9tbcVSqVR4YGAg1NPTE/qNYaVSodu3b/T4+EhPT0/08fFRzuVyO7FYbC0IiEAAhUJheXJycnNnZyfa29sb/uk4DMCOU0qpbdv/WltbzxOJxGoQiFYAILdt25sYYwgh5FHH4N/5TQhhHBsA/D03AEC0BODevr+/X5qZmTnY3d3tdpIjYhCcc3J5eXm8tLS0PD8/f9AKQisA96Hj4+PS7OzswdHRUcQJoUAEpcTb25uxv79/MT09vdIKQjsAANzd3S2l0+mD09PTiG3bSAXBBCcIIkwpNff29i7m5uZWWkFoB3A+c35+Xpqfnz+4uLiI3NzcGAih+8HBwXI8Hv/3GXBuPZPJlGZmZszNzc3TeDy+3mg8sE7oB9NQxJhBRxkOEBTQ8/r/z8AXo7qdIZS2+AQAAAAASUVORK5CYII=">
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB1klEQVRYR+2WS0sDQRDHZ9Jj8JHEA4IXwbOgB0WQePKgEME+cooe/AYevHjxC3jz4DcQFBEUBEHw4smDYBA9CB48CXgUfCQ+kk2m3E2aZJZkyc5mA4GlmO7q+v1nprqmQizwQwvcH+MAcAa8ZqA4HFYnJyfJwsJCqr+/P1UoFCK5XC5iGAYpn8QYG4ZhUkrNvb29s+Pj46vBwcGLSCSyFjQIgQHK5XKsWCxu9vX1bW9tbcVSqVR4YGAg1NPTE/qNYaVSodu3b/T4+EhPT0/08fFRzuVyO7FYbC0IiEAAhUJheXJycnNnZyfa29sb/uk4DMCOU0qpbdv/WltbzxOJxGoQiFYAILdt25sYYwgh5FHH4N/5TQhhHBsA/D03AEC0BODevr+/X5qZmTnY3d3tdpIjYhCcc3J5eXm8tLS0PD8/f9AKQisA96Hj4+PS7OzswdHRUcQJoUAEpcTb25uxv79/MT09vdIKQjsAANzd3S2l0+mD09PTiG3bSAXBBCcIIkwpNff29i7m5uZWWkFoB3A+c35+Xpqfnz+4uLiI3NzcGAih+8HBwXI8Hv/3GXBuPZPJlGZmZszNzc3TeDy+3mg8sE7oB9NQxJhBRxkOEBTQ8/r/z8AXo7qdIZS2+AQAAAAASUVORK5CYII=">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB1klEQVRYR+2WS0sDQRDHZ9Jj8JHEA4IXwbOgB0WQePKgEME+cooe/AYevHjxC3jz4DcQFBEUBEHw4smDYBA9CB48CXgUfCQ+kk2m3E2aZJZkyc5mA4GlmO7q+v1nprqmQizwQwvcH+MAcAa8ZqA4HFYnJyfJwsJCqr+/P1UoFCK5XC5iGAYpn8QYG4ZhUkrNvb29s+Pj46vBwcGLSCSyFjQIgQHK5XKsWCxu9vX1bW9tbcVSqVR4YGAg1NPTE/qNYaVSodu3b/T4+EhPT0/08fFRzuVyO7FYbC0IiEAAhUJheXJycnNnZyfa29sb/uk4DMCOU0qpbdv/WltbzxOJxGoQiFYAILdt25sYYwgh5FHH4N/5TQhhHBsA/D03AEC0BODevr+/X5qZmTnY3d3tdpIjYhCcc3J5eXm8tLS0PD8/f9AKQisA96Hj4+PS7OzswdHRUcQJoUAEpcTb25uxv79/MT09vdIKQjsAANzd3S2l0+mD09PTiG3bSAXBBCcIIkwpNff29i7m5uZWWkFoB3A+c35+Xpqfnz+4uLiI3NzcGAih+8HBwXI8Hv/3GXBuPZPJlGZmZszNzc3TeDy+3mg8sE7oB9NQxJhBRxkOEBTQ8/r/z8AXo7qdIZS2+AQAAAAASUVORK5CYII=">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB1klEQVRYR+2WS0sDQRDHZ9Jj8JHEA4IXwbOgB0WQePKgEME+cooe/AYevHjxC3jz4DcQFBEUBEHw4smDYBA9CB48CXgUfCQ+kk2m3E2aZJZkyc5mA4GlmO7q+v1nprqmQizwQwvcH+MAcAa8ZqA4HFYnJyfJwsJCqr+/P1UoFCK5XC5iGAYpn8QYG4ZhUkrNvb29s+Pj46vBwcGLSCSyFjQIgQHK5XKsWCxu9vX1bW9tbcVSqVR4YGAg1NPTE/qNYaVSodu3b/T4+EhPT0/08fFRzuVyO7FYbC0IiEAAhUJheXJycnNnZyfa29sb/uk4DMCOU0qpbdv/WltbzxOJxGoQiFYAILdt25sYYwgh5FHH4N/5TQhhHBsA/D03AEC0BODevr+/X5qZmTnY3d3tdpIjYhCcc3J5eXm8tLS0PD8/f9AKQisA96Hj4+PS7OzswdHRUcQJoUAEpcTb25uxv79/MT09vdIKQjsAANzd3S2l0+mD09PTiG3bSAXBBCcIIkwpNff29i7m5uZWWkFoB3A+c35+Xpqfnz+4uLiI3NzcGAih+8HBwXI8Hv/3GXBuPZPJlGZmZszNzc3TeDy+3mg8sE7oB9NQxJhBRxkOEBTQ8/r/z8AXo7qdIZS2+AQAAAAASUVORK5CYII=">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB1klEQVRYR+2WS0sDQRDHZ9Jj8JHEA4IXwbOgB0WQePKgEME+cooe/AYevHjxC3jz4DcQFBEUBEHw4smDYBA9CB48CXgUfCQ+kk2m3E2aZJZkyc5mA4GlmO7q+v1nprqmQizwQwvcH+MAcAa8ZqA4HFYnJyfJwsJCqr+/P1UoFCK5XC5iGAYpn8QYG4ZhUkrNvb29s+Pj46vBwcGLSCSyFjQIgQHK5XKsWCxu9vX1bW9tbcVSqVR4YGAg1NPTE/qNYaVSodu3b/T4+EhPT0/08fFRzuVyO7FYbC0IiEAAhUJheXJycnNnZyfa29sb/uk4DMCOU0qpbdv/WltbzxOJxGoQiFYAILdt25sYYwgh5FHH4N/5TQhhHBsA/D03AEC0BODevr+/X5qZmTnY3d3tdpIjYhCcc3J5eXm8tLS0PD8/f9AKQisA96Hj4+PS7OzswdHRUcQJoUAEpcTb25uxv79/MT09vdIKQjsAANzd3S2l0+mD09PTiG3bSAXBBCcIIkwpNff29i7m5uZWWkFoB3A+c35+Xpqfnz+4uLiI3NzcGAih+8HBwXI8Hv/3GXBuPZPJlGZmZszNzc3TeDy+3mg8sE7oB9NQxJhBRxkOEBTQ8/r/z8AXo7qdIZS2+AQAAAAASUVORK5CYII=">
+    <meta name="msapplication-TileColor" content="#9c27b0">
+    
+    <!-- Zusätzliches Favicon für bessere Browserunterstützung -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    
+    <title>{% block title %}Elegant Progressive Ladies Club München e.V.{% endblock %}</title>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9c27b0',
+                        secondary: '#e91e63',
+                        accent: '#3f51b5',
+                        light: '#f8f9fa',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- ScrollReveal für Scroll-Animationen -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    
+    <!-- GSAP für fortgeschrittene Animationen -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    
+    <!-- Particles.js für Partikel-Animationen -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- JSON-LD Strukturierte Daten -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "Elegant Progressive Ladies Club München e.V.",
+      "url": "https://www.elegantprogressiveladies.org",
+      "logo": "{{ url_for('static', filename='img/logo/logo.png', _external=True) }}",
+      "sameAs": [
+        "https://www.facebook.com/elegantprogressiveladies",
+        "https://www.instagram.com/elegantprogressiveladies",
+        "https://www.linkedin.com/company/elegantprogressiveladies"
+      ],
+      "description": "Der Elegant Progressive Ladies Club München e.V. ist eine Gemeinschaft engagierter Frauen, die durch soziales Engagement positiven Wandel bewirken.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Munich",
+        "addressRegion": "Bavaria",
+        "addressCountry": "Germany"
+      }
+    }
+    </script>
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="flex flex-col min-h-screen bg-light font-sans" x-data="{ mobileMenuOpen: false }">
+    
+    <!-- Header -->
+    {% include 'components/header.html' %}
+    
+    <!-- Hauptinhalt -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    {% include 'components/footer.html' %}
+    
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 
