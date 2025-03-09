@@ -136,6 +136,13 @@ with app.app_context():
         )
         db.session.add(admin_user)
         db.session.commit()
+        print(f"Admin-Benutzer wurde erstellt mit Passwort: {app.config['ADMIN_PASSWORD']}")
+    else:
+        # Aktualisiere das Admin-Passwort
+        admin_user = User.query.filter_by(username=app.config['ADMIN_USERNAME']).first()
+        admin_user.password_hash = generate_password_hash(app.config['ADMIN_PASSWORD'])
+        db.session.commit()
+        print(f"Admin-Passwort wurde aktualisiert auf: {app.config['ADMIN_PASSWORD']}")
     
     # Beispiel-Projekte erstellen, falls keine vorhanden sind
     # if Project.query.count() == 0:
