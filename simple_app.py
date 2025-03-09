@@ -22,7 +22,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Admin-Konfiguration
 app.config['ADMIN_USERNAME'] = 'admin'
-app.config['ADMIN_PASSWORD'] = 'admin'
+app.config['ADMIN_PASSWORD'] = 'Mob321'
 app.config['ADMIN_EMAIL'] = 'buchneresther08@gmail.com'
 
 # Mail-Konfiguration (für Produktion anpassen)
