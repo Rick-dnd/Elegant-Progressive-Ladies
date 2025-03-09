@@ -8,7 +8,8 @@ from flask_mail import Mail, Message
 
 # Blueprints erstellen
 main_routes = Blueprint('main', __name__)
-admin_routes = Blueprint('custom_admin', __name__, url_prefix='/admin')
+# Verwende 'name' Parameter für eindeutigen Namen, behalte 'admin' für url_for-Kompatibilität
+admin_routes = Blueprint('admin', __name__, url_prefix='/admin', name='admin_blueprint')
 
 # E-Mail-Instanz
 mail = Mail()
