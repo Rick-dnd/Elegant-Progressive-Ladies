@@ -9,9 +9,15 @@ from flask_assets import Environment, Bundle
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
+from datetime import datetime
 
 from models import db, Project, News, Gallery, Contact, ContactForm, User
 from config import config
+
+# Für Render-Deployment: App aus simple_app importieren
+from simple_app import app as app
 
 mail = Mail()
 cache = Cache()
